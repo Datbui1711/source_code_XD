@@ -1,0 +1,88 @@
+TRẦN VĂN HÙNG
+Backend Developer
+
+CONTACT INFORMATION
+Email: tranvanhung@email.com
+Phone: +84 912 345 678
+Location: Da Nang, Vietnam
+LinkedIn: linkedin.com/in/tranvanhung
+GitHub: github.com/tranvanhung
+
+PROFESSIONAL SUMMARY
+Results-driven Backend Developer with 4+ years of experience designing and implementing scalable 
+server-side applications. Expert in Java Spring Boot, microservices architecture, and database optimization. 
+Strong focus on code quality, security, and performance. Proven track record of delivering robust APIs 
+serving millions of requests daily.
+
+WORK EXPERIENCE
+
+Senior Backend Developer | Tech Innovations Ltd. | 2022 - Present
+- Architected microservices system handling 5M+ requests/day with 99.9% uptime
+- Optimized database queries reducing response time from 2s to 200ms (90% improvement)
+- Implemented caching strategy with Redis cutting server load by 60%
+- Led team of 3 backend developers in Agile environment
+- Technologies: Java Spring Boot, PostgreSQL, Redis, Kafka, Docker
+
+Backend Developer | Software Solutions Vietnam | 2020 - 2022
+- Developed RESTful APIs for banking application serving 500K+ users
+- Implemented JWT authentication and role-based access control
+- Integrated payment gateways (VNPay, Momo, Stripe) with 99.99% success rate
+- Wrote comprehensive unit tests achieving 85% code coverage
+- Technologies: Java, Spring Framework, MySQL, RabbitMQ, JUnit
+
+Junior Developer | Startup Tech Co. | 2019 - 2020
+- Built backend services for social media platform
+- Implemented real-time notifications using WebSocket
+- Participated in database design and optimization
+- Technologies: Node.js, Express.js, MongoDB, Socket.io
+
+EDUCATION
+
+Bachelor of Computer Engineering | Da Nang University of Technology | 2015 - 2019
+- GPA: 3.8/4.0
+- Relevant coursework: Data Structures, Algorithms, Database Systems, Software Engineering
+- Final project: Distributed Task Scheduling System using Java
+
+TECHNICAL SKILLS
+
+Backend: Java, Spring Boot, Spring Security, Spring Data JPA, Hibernate
+Languages: Java, Python, Node.js, SQL
+Database: PostgreSQL, MySQL, MongoDB, Redis
+Message Queue: Kafka, RabbitMQ, ActiveMQ
+DevOps: Docker, Kubernetes, Jenkins, GitLab CI/CD
+Cloud: AWS (EC2, RDS, S3, Lambda), Google Cloud Platform
+Tools: Git, Maven, Gradle, IntelliJ IDEA, Postman
+Other: Microservices, RESTful API, GraphQL, OAuth2, JWT, Unit Testing
+
+PROJECTS
+
+Payment Gateway Integration System (2023)
+- Built unified payment system supporting multiple providers
+- Implemented retry mechanism and transaction logging
+- Tech stack: Java Spring Boot, PostgreSQL, Redis, Kafka
+- Result: Processing 100K+ transactions/day, 99.99% success rate
+
+Inventory Management API (2022)
+- Developed real-time inventory tracking system for e-commerce
+- Implemented distributed locking to prevent overselling
+- Tech stack: Java, Spring Boot, MySQL, Redis, Docker
+- Result: Reduced inventory errors by 95%, serving 50+ clients
+
+CERTIFICATIONS
+
+- Oracle Certified Professional: Java SE 11 Developer (2023)
+- AWS Certified Developer - Associate (2022)
+- Spring Professional Certification (2021)
+
+LANGUAGES
+
+- Vietnamese: Native
+- English: Fluent (IELTS 7.0)
+
+ACHIEVEMENTS
+
+- Optimized critical API reducing latency by 85% (from 1.5s to 220ms)
+- Designed database schema supporting 10M+ records with efficient queries
+- Contributed to 8+ open-source Java projects on GitHub
+- Speaker at Da Nang Tech Meetup 2023 - "Building Scalable Microservices"
+- Mentored 5 junior developers in backend development best practices

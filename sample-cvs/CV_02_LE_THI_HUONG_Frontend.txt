@@ -1,0 +1,78 @@
+LÊ THỊ HƯƠNG
+Frontend Developer
+
+CONTACT INFORMATION
+Email: lethihuong@email.com
+Phone: +84 987 654 321
+Location: Hanoi, Vietnam
+LinkedIn: linkedin.com/in/lethihuong
+Portfolio: lethihuong.dev
+
+PROFESSIONAL SUMMARY
+Creative Frontend Developer with 3+ years of experience building responsive, user-centric web applications. 
+Expert in React, Vue.js, and modern CSS frameworks. Passionate about creating beautiful, accessible interfaces 
+with excellent performance. Strong collaboration skills with designers and backend teams.
+
+WORK EXPERIENCE
+
+Frontend Developer | Digital Solutions Co. | 2022 - Present
+- Developed 20+ responsive web applications using React and Vue.js
+- Improved page load time by 45% through code splitting and lazy loading
+- Implemented design system reducing development time by 30%
+- Collaborated with UX team to create accessible interfaces (WCAG 2.1 AA compliant)
+- Technologies: React, TypeScript, Tailwind CSS, Next.js, Redux
+
+Junior Frontend Developer | Web Agency Vietnam | 2021 - 2022
+- Built interactive UI components for e-commerce platforms
+- Integrated RESTful APIs and handled state management
+- Optimized images and assets reducing bundle size by 40%
+- Participated in code reviews and pair programming sessions
+- Technologies: Vue.js, JavaScript, SCSS, Vuex, Webpack
+
+EDUCATION
+
+Bachelor of Information Technology | Hanoi University of Science and Technology | 2017 - 2021
+- GPA: 3.6/4.0
+- Relevant coursework: Web Development, UI/UX Design, Human-Computer Interaction
+- Thesis: Building Progressive Web Applications with React
+
+TECHNICAL SKILLS
+
+Frontend: React, Vue.js, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3
+Styling: Tailwind CSS, SCSS, Styled Components, Material-UI, Ant Design
+State Management: Redux, Zustand, Vuex, Context API
+Tools: Git, Webpack, Vite, npm, Figma, Adobe XD
+Testing: Jest, React Testing Library, Cypress
+Other: Responsive Design, Accessibility (WCAG), Performance Optimization, SEO
+
+PROJECTS
+
+E-Learning Platform (2023)
+- Built interactive learning platform with video streaming and quizzes
+- Implemented real-time progress tracking and gamification features
+- Tech stack: React, TypeScript, Tailwind CSS, Firebase
+- Result: 15K+ active students, 4.8/5 user rating
+
+Portfolio Website Builder (2022)
+- Created drag-and-drop website builder for freelancers
+- Features: Template library, custom domains, responsive preview
+- Tech stack: Vue.js, Vuex, SCSS, Node.js
+- Result: 3K+ users, featured on ProductHunt
+
+CERTIFICATIONS
+
+- Meta Frontend Developer Professional Certificate (2023)
+- Google UX Design Certificate (2022)
+- freeCodeCamp Responsive Web Design (2021)
+
+LANGUAGES
+
+- Vietnamese: Native
+- English: Intermediate (TOEIC 750)
+
+ACHIEVEMENTS
+
+- Won 2nd place in Vietnam Web Design Competition 2023
+- Contributed to 5+ open-source UI component libraries
+- Published 10+ technical articles on dev.to (5K+ views)
+- Mentored 3 junior developers in frontend best practices
