@@ -1,0 +1,98 @@
+PHẠM THỊ LAN
+UI/UX Designer
+
+CONTACT INFORMATION
+Email: phamthilan@email.com
+Phone: +84 901 234 567
+Location: Hanoi, Vietnam
+LinkedIn: linkedin.com/in/phamthilan
+Portfolio: phamthilan.design
+Behance: behance.net/phamthilan
+
+PROFESSIONAL SUMMARY
+Creative UI/UX Designer with 4+ years of experience crafting intuitive, user-centered digital experiences. 
+Expert in user research, wireframing, prototyping, and visual design. Passionate about solving complex 
+problems through elegant design solutions. Strong collaboration skills with product and development teams. 
+Proven track record of increasing user engagement and satisfaction.
+
+WORK EXPERIENCE
+
+Senior UI/UX Designer | Digital Experience Agency | 2022 - Present
+- Led design for 15+ web and mobile applications across various industries
+- Conducted user research and usability testing with 200+ participants
+- Increased user engagement by 55% through redesigned onboarding flow
+- Created comprehensive design system used by 8-person development team
+- Improved task completion rate from 65% to 92% through iterative design
+- Tools: Figma, Adobe XD, Sketch, InVision, Miro, Maze
+
+UI/UX Designer | Tech Startup Co. | 2020 - 2022
+- Designed mobile app interface for fintech product (100K+ downloads)
+- Conducted A/B testing resulting in 35% increase in conversion rate
+- Collaborated with developers to ensure pixel-perfect implementation
+- Created interactive prototypes for stakeholder presentations
+- Tools: Figma, Adobe Creative Suite, Principle, Zeplin
+
+Junior Designer | Creative Studio | 2019 - 2020
+- Assisted in designing websites and mobile apps for clients
+- Created wireframes, mockups, and design specifications
+- Participated in brainstorming sessions and design critiques
+- Tools: Sketch, Adobe Illustrator, Photoshop
+
+EDUCATION
+
+Bachelor of Graphic Design | Hanoi University of Fine Arts | 2015 - 2019
+- GPA: 3.8/4.0
+- Relevant coursework: User Experience Design, Visual Communication, Typography, Color Theory
+- Thesis: Designing Accessible Mobile Interfaces for Elderly Users
+
+DESIGN SKILLS
+
+UX Research: User Interviews, Surveys, Usability Testing, Card Sorting, Journey Mapping
+UX Design: Wireframing, Prototyping, Information Architecture, User Flows, Personas
+UI Design: Visual Design, Typography, Color Theory, Iconography, Design Systems
+Tools: Figma, Adobe XD, Sketch, InVision, Miro, Maze, Optimal Workshop
+Prototyping: Figma, Principle, ProtoPie, After Effects
+Design Systems: Component Libraries, Style Guides, Design Tokens
+Other: HTML/CSS basics, Responsive Design, Accessibility (WCAG), Agile/Scrum
+
+PROJECTS
+
+Banking Mobile App Redesign (2023)
+- Redesigned mobile banking app improving user satisfaction from 3.2 to 4.6 stars
+- Conducted user research with 50+ participants identifying pain points
+- Created high-fidelity prototypes and conducted usability testing
+- Result: 45% increase in daily active users, 60% reduction in support tickets
+
+E-Commerce Platform (2022)
+- Designed end-to-end shopping experience for fashion e-commerce
+- Implemented personalized recommendation interface
+- Created responsive design for web and mobile
+- Result: 40% increase in conversion rate, 25% increase in average order value
+
+Healthcare Appointment System (2021)
+- Designed patient portal for booking and managing medical appointments
+- Focused on accessibility for elderly users
+- Conducted 5 rounds of usability testing and iterations
+- Result: 85% task completion rate, 4.7/5 user satisfaction score
+
+CERTIFICATIONS
+
+- Google UX Design Professional Certificate (2023)
+- Nielsen Norman Group UX Certification (2022)
+- Interaction Design Foundation - UX Design (2021)
+- Adobe Certified Professional in Visual Design (2020)
+
+LANGUAGES
+
+- Vietnamese: Native
+- English: Fluent (IELTS 7.0)
+
+ACHIEVEMENTS
+
+- Won 1st place in Vietnam UX Design Challenge 2023
+- Designed interface featured in Awwwards and CSS Design Awards
+- Published 8+ design case studies on Medium (10K+ views)
+- Speaker at Vietnam Design Week 2023 - "Designing for Accessibility"
+- Mentored 6 junior designers in UX research and design thinking
+- Contributed to open-source design system with 1K+ downloads
+- Increased client satisfaction score from 4.2 to 4.8 through improved design process
