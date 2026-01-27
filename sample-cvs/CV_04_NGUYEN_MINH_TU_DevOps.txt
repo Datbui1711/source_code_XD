@@ -1,0 +1,95 @@
+NGUYỄN MINH TÚ
+DevOps Engineer
+
+CONTACT INFORMATION
+Email: nguyenminhtu@email.com
+Phone: +84 908 765 432
+Location: Ho Chi Minh City, Vietnam
+LinkedIn: linkedin.com/in/nguyenminhtu
+GitHub: github.com/nguyenminhtu
+
+PROFESSIONAL SUMMARY
+Experienced DevOps Engineer with 5+ years of expertise in cloud infrastructure, CI/CD automation, 
+and container orchestration. Specialized in AWS, Kubernetes, and Infrastructure as Code. 
+Passionate about improving deployment efficiency and system reliability. Strong problem-solving 
+skills with focus on automation and monitoring.
+
+WORK EXPERIENCE
+
+Senior DevOps Engineer | Cloud Tech Solutions | 2021 - Present
+- Managed AWS infrastructure serving 2M+ users with 99.95% uptime
+- Reduced deployment time from 2 hours to 15 minutes (87.5% improvement) using GitLab CI/CD
+- Implemented Infrastructure as Code with Terraform managing 100+ resources
+- Set up comprehensive monitoring with Prometheus and Grafana reducing MTTR by 70%
+- Cost optimization initiatives saving $50K/year in cloud expenses
+- Technologies: AWS, Kubernetes, Docker, Terraform, GitLab CI/CD, Prometheus
+
+DevOps Engineer | Enterprise Systems Co. | 2019 - 2021
+- Built and maintained CI/CD pipelines for 15+ microservices
+- Migrated monolithic application to containerized microservices architecture
+- Implemented automated backup and disaster recovery procedures
+- Managed Kubernetes clusters with 50+ pods across multiple environments
+- Technologies: Docker, Kubernetes, Jenkins, Ansible, ELK Stack
+
+System Administrator | IT Services Vietnam | 2018 - 2019
+- Administered Linux servers (Ubuntu, CentOS) for 20+ clients
+- Automated routine tasks using Bash and Python scripts
+- Implemented security best practices and regular system updates
+- Technologies: Linux, Nginx, Apache, MySQL, Bash scripting
+
+EDUCATION
+
+Bachelor of Information Systems | University of Information Technology | 2014 - 2018
+- GPA: 3.7/4.0
+- Relevant coursework: Operating Systems, Computer Networks, Cloud Computing, System Administration
+- Final project: Automated Deployment System using Docker and Jenkins
+
+TECHNICAL SKILLS
+
+Cloud Platforms: AWS (EC2, ECS, EKS, S3, RDS, Lambda, CloudFormation), Google Cloud, Azure
+Containers: Docker, Kubernetes, Docker Compose, Helm
+CI/CD: GitLab CI/CD, Jenkins, GitHub Actions, ArgoCD
+Infrastructure as Code: Terraform, Ansible, CloudFormation
+Monitoring: Prometheus, Grafana, ELK Stack, Datadog, CloudWatch
+Scripting: Bash, Python, PowerShell
+Version Control: Git, GitLab, GitHub
+Operating Systems: Linux (Ubuntu, CentOS, RHEL), Windows Server
+Databases: PostgreSQL, MySQL, MongoDB, Redis
+Other: Nginx, Apache, HAProxy, Vault, Consul
+
+PROJECTS
+
+Multi-Region AWS Infrastructure (2023)
+- Designed and deployed highly available infrastructure across 3 AWS regions
+- Implemented auto-scaling and load balancing for optimal performance
+- Tech stack: AWS, Terraform, Kubernetes, GitLab CI/CD
+- Result: 99.99% uptime, automatic failover in under 2 minutes
+
+Kubernetes Migration Project (2022)
+- Migrated 20+ applications from VMs to Kubernetes clusters
+- Implemented blue-green deployment strategy for zero-downtime releases
+- Tech stack: Kubernetes, Docker, Helm, ArgoCD, Prometheus
+- Result: Reduced deployment time by 80%, improved resource utilization by 40%
+
+CERTIFICATIONS
+
+- AWS Certified Solutions Architect - Professional (2023)
+- Certified Kubernetes Administrator (CKA) (2022)
+- HashiCorp Certified: Terraform Associate (2022)
+- AWS Certified DevOps Engineer - Professional (2021)
+- Linux Foundation Certified System Administrator (2020)
+
+LANGUAGES
+
+- Vietnamese: Native
+- English: Fluent (IELTS 7.5)
+
+ACHIEVEMENTS
+
+- Reduced infrastructure costs by 35% through resource optimization and reserved instances
+- Achieved 99.95% uptime for production systems over 2 years
+- Automated 90% of manual deployment tasks saving 20 hours/week
+- Built disaster recovery system with RPO < 1 hour and RTO < 30 minutes
+- Contributed to 12+ open-source DevOps tools on GitHub (500+ stars)
+- Speaker at DevOps Vietnam Conference 2023 - "Kubernetes Best Practices"
+- Mentored 4 junior DevOps engineers in cloud and automation technologies
