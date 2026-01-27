@@ -1,8 +1,0 @@
-com\careermate\recruiter\repository\ApplicationRepository.class
-com\careermate\recruiter\repository\JobPostingRepository.class
-com\careermate\recruiter\RecruiterServiceApplication.class
-com\careermate\recruiter\service\AIService.class
-com\careermate\recruiter\entity\Application.class
-com\careermate\recruiter\entity\JobPosting.class
-com\careermate\recruiter\controller\RecruiterController.class
-com\careermate\recruiter\dto\CVAnalysisResult.class
