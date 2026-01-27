@@ -1,0 +1,111 @@
+=== MẪU ĐĂNG BÀI TUYỂN DỤNG ===
+
+Job Title:
+Senior Full Stack Developer
+
+Company Name:
+Tech Corp Vietnam
+
+Location:
+Ho Chi Minh City
+
+Employment Type:
+Full-time (chọn từ dropdown)
+
+Salary Range:
+$2000-3000
+
+Experience Required:
+3+ years
+
+Số lượng tuyển dụng (Slots):
+2
+
+Job Description:
+We are looking for an experienced Full Stack Developer to join our growing team. You will be responsible for developing and maintaining web applications using modern technologies. This is a great opportunity to work on challenging projects and grow your career in a dynamic environment.
+
+Requirements:
+- 3+ years of experience with React and Node.js
+- Strong knowledge of JavaScript/TypeScript
+- Experience with RESTful APIs and microservices
+- Proficient in SQL and NoSQL databases
+- Good understanding of Git and CI/CD
+- Excellent problem-solving skills
+- Good communication in English
+
+===================================
+
+=== MẪU 2: FRONTEND DEVELOPER ===
+
+Job Title:
+Frontend Developer
+
+Company Name:
+Startup Inc
+
+Location:
+Hanoi
+
+Employment Type:
+Full-time
+
+Salary Range:
+$1500-2500
+
+Experience Required:
+2+ years
+
+Số lượng tuyển dụng (Slots):
+3
+
+Job Description:
+Join our dynamic startup team as a Frontend Developer. You will work on building beautiful and responsive user interfaces for our web applications. We value creativity, attention to detail, and a passion for creating great user experiences.
+
+Requirements:
+- 2+ years experience with React or Vue.js
+- Strong HTML5, CSS3, and JavaScript skills
+- Experience with responsive design and mobile-first approach
+- Knowledge of modern CSS frameworks (Tailwind, Bootstrap)
+- Understanding of web performance optimization
+- Experience with Git version control
+- Good teamwork and communication skills
+
+===================================
+
+=== MẪU 3: BACKEND DEVELOPER ===
+
+Job Title:
+Backend Developer
+
+Company Name:
+Enterprise Solutions
+
+Location:
+Da Nang
+
+Employment Type:
+Full-time
+
+Salary Range:
+$1800-2800
+
+Experience Required:
+3+ years
+
+Số lượng tuyển dụng (Slots):
+1
+
+Job Description:
+We are seeking a talented Backend Developer to design and implement scalable server-side applications. You will work with our team to build robust APIs and services that power our enterprise solutions.
+
+Requirements:
+- 3+ years experience with Java/Spring Boot or Node.js
+- Strong understanding of microservices architecture
+- Experience with PostgreSQL, MySQL, or MongoDB
+- Knowledge of RESTful API design principles
+- Experience with Docker and Kubernetes
+- Understanding of security best practices
+- Excellent problem-solving abilities
+- Good English communication skills
+
+===================================
