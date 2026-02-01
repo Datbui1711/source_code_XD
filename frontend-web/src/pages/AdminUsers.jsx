@@ -96,22 +96,35 @@ function AdminUsers({ onLogout }) {
     }
   };
 
-  const handleCreateUser = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem('accessToken');
-      await axios.post('/api/auth/register', formData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      alert('User created successfully');
-      setShowCreateModal(false);
-      setFormData({ email: '', password: '', role: 'CANDIDATE' });
-      fetchUsers();
-    } catch (error) {
-      console.error('Error creating user:', error);
-      alert('Failed to create user');
+ const handleCreateUser = async (e) => {
+  e.preventDefault();
+  try {
+    const token = localStorage.getItem('accessToken');
+
+    // Validate password length
+    if (formData.password.length < 8) {
+      alert('Password must be at least 8 characters long');
+      return;
     }
-  };
+
+    await axios.post('/api/auth/admin/users', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    alert('User created successfully');
+    setShowCreateModal(false);
+    setFormData({ email: '', password: '', role: 'CANDIDATE' });
+    fetchUsers();
+
+  } catch (error) {
+    console.error('Error creating user:', error);
+    const errorMessage = error.response?.data?.message || 'Failed to create user';
+    alert(errorMessage);
+  }
+};
 
   const handleLogout = () => {
     onLogout();
