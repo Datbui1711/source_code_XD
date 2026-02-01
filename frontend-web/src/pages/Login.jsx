@@ -1,0 +1,299 @@
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+
+function Login({ onLogin }) {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const response = await axios.post('/api/auth/login', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: false
+      });
+      const { accessToken, refreshToken, role } = response.data;
+      
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      localStorage.setItem('userEmail', formData.email);
+      localStorage.setItem('userRole', role || 'CANDIDATE');
+      
+      onLogin(accessToken);
+      
+      // Redirect based on role
+      if (role === 'ADMIN') {
+        navigate('/admin/dashboard');
+      } else if (role === 'RECRUITER') {
+        navigate('/recruiter/dashboard');
+      } else {
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      setLoading(true);
+      setError('');
+      
+      const response = await axios.post('/api/auth/oauth2/google', {
+        idToken: credentialResponse.credential
+      });
+      
+      const { accessToken, refreshToken, role, email } = response.data;
+      
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      localStorage.setItem('userRole', role || 'CANDIDATE');
+      localStorage.setItem('userEmail', email);
+      
+      onLogin(accessToken);
+      
+      // Redirect based on role
+      if (role === 'ADMIN') {
+        navigate('/admin/dashboard');
+      } else if (role === 'RECRUITER') {
+        navigate('/recruiter/dashboard');
+      } else {
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      setError('Google login failed. Please try again.');
+      console.error('Google login error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleError = () => {
+    setError('Google login failed. Please try again.');
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', background: '#f8fafc' }}>
+      {/* Left Side - Branding */}
+      <div style={{ flex: 1, background: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '2rem', color: 'white' }} className="hide-mobile">
+        <div style={{ maxWidth: '500px' }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+            CareerMate
+          </h1>
+          <p style={{ fontSize: '1.25rem', lineHeight: '1.8', opacity: 0.95, marginBottom: '2rem' }}>
+            Your intelligent career companion. Connect with opportunities, grow your skills, and advance your professional journey.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.2)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>✓</div>
+              <div>
+                <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Smart Job Matching</div>
+                <div style={{ opacity: 0.9, fontSize: '0.9rem' }}>AI-powered recommendations tailored to your profile</div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.2)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>✓</div>
+              <div>
+                <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Career Guidance</div>
+                <div style={{ opacity: 0.9, fontSize: '0.9rem' }}>Expert advice and personalized career roadmaps</div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ width: '48px', height: '48px', background: 'rgba(255,255,255,0.2)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>✓</div>
+              <div>
+                <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Skill Development</div>
+                <div style={{ opacity: 0.9, fontSize: '0.9rem' }}>Assessments and learning paths to boost your career</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side - Login Form */}
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
+        <div style={{ width: '100%', maxWidth: '440px', padding: '1rem' }}>
+          {/* Mobile Logo */}
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }} className="show-mobile">
+            <h1 style={{ fontSize: '2rem', fontWeight: '700', background: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '0.5rem' }}>
+              CareerMate
+            </h1>
+          </div>
+
+          <div style={{ marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
+              Welcome back
+            </h2>
+            <p style={{ color: '#64748b', fontSize: '0.95rem' }}>
+              Sign in to continue to your account
+            </p>
+          </div>
+
+          {error && (
+            <div style={{ padding: '1rem', background: '#fee2e2', border: '1px solid #fecaca', borderRadius: '8px', marginBottom: '1.5rem', color: '#dc2626' }}>
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: '#334155', fontWeight: '500', fontSize: '0.95rem' }}>
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="you@example.com"
+                style={{ width: '100%', padding: '0.875rem 1rem', border: '1.5px solid #e2e8f0', borderRadius: '8px', fontSize: '1rem', transition: 'all 0.2s', outline: 'none' }}
+                onFocus={(e) => e.target.style.borderColor = '#0ea5e9'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
+              />
+            </div>
+
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: '#334155', fontWeight: '500', fontSize: '0.95rem' }}>
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                placeholder="Enter your password"
+                style={{ width: '100%', padding: '0.875rem 1rem', border: '1.5px solid #e2e8f0', borderRadius: '8px', fontSize: '1rem', transition: 'all 0.2s', outline: 'none' }}
+                onFocus={(e) => e.target.style.borderColor = '#0ea5e9'}
+                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
+              />
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#64748b', fontSize: '0.9rem' }}>
+                <input type="checkbox" style={{ width: '16px', height: '16px', cursor: 'pointer' }} />
+                Remember me
+              </label>
+              <a href="#" style={{ color: '#0ea5e9', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '500' }}>
+                Forgot password?
+              </a>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              style={{ width: '100%', padding: '1rem', background: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)', color: 'white', border: 'none', borderRadius: '8px', fontSize: '1rem', fontWeight: '600', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(14, 165, 233, 0.3)' }}
+              onMouseOver={(e) => !loading && (e.target.style.transform = 'translateY(-1px)', e.target.style.boxShadow = '0 6px 16px rgba(14, 165, 233, 0.4)')}
+              onMouseOut={(e) => (e.target.style.transform = 'translateY(0)', e.target.style.boxShadow = '0 4px 12px rgba(14, 165, 233, 0.3)')}
+            >
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+
+            <div style={{ position: 'relative', textAlign: 'center', margin: '1.5rem 0' }}>
+              <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', background: '#e2e8f0' }}></div>
+              <span style={{ position: 'relative', background: '#f8fafc', padding: '0 1rem', color: '#94a3b8', fontSize: '0.9rem' }}>
+                Or continue with
+              </span>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    const response = await axios.get('/api/auth/oauth2/google/url');
+                    window.location.href = response.data.authUrl;
+                  } catch (error) {
+                    console.error('Failed to get Google auth URL:', error);
+                    setError('Failed to initialize Google login. Please try again.');
+                  }
+                }}
+                style={{ 
+                  width: '100%', 
+                  padding: '0.875rem 1rem', 
+                  background: 'white', 
+                  border: '1.5px solid #e2e8f0', 
+                  borderRadius: '8px', 
+                  fontSize: '1rem', 
+                  fontWeight: '500', 
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.75rem',
+                  transition: 'all 0.2s',
+                  color: '#334155'
+                }}
+                onMouseOver={(e) => e.target.style.borderColor = '#cbd5e1'}
+                onMouseOut={(e) => e.target.style.borderColor = '#e2e8f0'}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Sign in with Google
+              </button>
+            </div>
+          </form>
+
+          <div style={{ marginTop: '2rem', textAlign: 'center', color: '#64748b', fontSize: '0.95rem' }}>
+            Don't have an account?{' '}
+            <Link to="/register" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600' }}>
+              Create account
+            </Link>
+          </div>
+
+          <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid #e2e8f0', textAlign: 'center' }}>
+            <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+              By signing in, you agree to our{' '}
+              <a href="#" style={{ color: '#64748b', textDecoration: 'underline' }}>Terms of Service</a>
+              {' '}and{' '}
+              <a href="#" style={{ color: '#64748b', textDecoration: 'underline' }}>Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .hide-mobile {
+            display: none !important;
+          }
+          .show-mobile {
+            display: block !important;
+          }
+        }
+        @media (min-width: 768px) {
+          .show-mobile {
+            display: none !important;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default Login;
