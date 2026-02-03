@@ -76,14 +76,14 @@ function Analytics({ onLogout }) {
       <div style={{ background: 'white', borderBottom: '1px solid #e2e8f0', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h1 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#0f172a' }}>
-            CareerMate Recruiter
+            CareerMate Nhà tuyển dụng
           </h1>
           <div className="nav-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Dashboard</a>
-            <a href="/recruiter/applications" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Applications</a>
-            <a href="/recruiter/analytics" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Analytics</a>
+            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Bảng điều khiển</a>
+            <a href="/recruiter/applications" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Đơn ứng tuyển</a>
+            <a href="/recruiter/analytics" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Phân tích</a>
             <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1.5px solid #e2e8f0', color: '#64748b', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>
-              Logout
+              Đăng xuất
             </button>
           </div>
           <button className="nav-mobile" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ flexDirection: 'column', gap: '4px', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}>
@@ -94,10 +94,10 @@ function Analytics({ onLogout }) {
         </div>
         {mobileMenuOpen && (
           <div className="nav-mobile" style={{ flexDirection: 'column', gap: '0.5rem', padding: '1rem', borderTop: '1px solid #e2e8f0', background: 'white' }}>
-            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Dashboard</a>
-            <a href="/recruiter/applications" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Applications</a>
-            <a href="/recruiter/analytics" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px' }}>Analytics</a>
-            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Logout</button>
+            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Bảng điều khiển</a>
+            <a href="/recruiter/applications" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Đơn ứng tuyển</a>
+            <a href="/recruiter/analytics" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px' }}>Phân tích</a>
+            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Đăng xuất</button>
           </div>
         )}
       </div>
@@ -106,65 +106,88 @@ function Analytics({ onLogout }) {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1rem' }}>
         <div style={{ marginBottom: '2.5rem' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
-            Recruitment Analytics 📊
+            Phân tích tuyển dụng
+            <svg style={{ display: 'inline-block', marginLeft: '0.5rem', verticalAlign: 'middle' }} width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 13H11V3H3V13ZM3 21H11V15H3V21ZM13 21H21V11H13V21ZM13 3V9H21V3H13Z" fill="#0ea5e9"/>
+            </svg>
           </h2>
           <p style={{ color: '#64748b', fontSize: '1.05rem' }}>
-            Track your recruitment performance and metrics
+            Theo dõi hiệu suất tuyển dụng và các chỉ số của bạn
           </p>
         </div>
 
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>Loading analytics...</div>
+          <div style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>Đang tải phân tích...</div>
         ) : (
           <>
             {/* Overview Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
               <div style={{ background: 'white', borderRadius: '12px', padding: '1.75rem', border: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>💼</div>
+                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 6V4H5V21H7V14H12V16H19V6H14Z" fill="#0ea5e9"/>
+                    </svg>
+                  </div>
                   <div>
                     <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.totalJobs}</div>
-                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Active Jobs</div>
+                    <div style={{ color: '#64748b', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>Việc làm đang hoạt động</div>
                   </div>
                 </div>
               </div>
 
               <div style={{ background: 'white', borderRadius: '12px', padding: '1.75rem', border: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📝</div>
+                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="#10b981"/>
+                    </svg>
+                  </div>
                   <div>
                     <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.totalApplications}</div>
-                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Total Applications</div>
+                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Tổng đơn ứng tuyển</div>
                   </div>
                 </div>
               </div>
 
               <div style={{ background: 'white', borderRadius: '12px', padding: '1.75rem', border: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>⏳</div>
+                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#f59e0b"/>
+                    </svg>
+                  </div>
                   <div>
                     <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.pendingApplications}</div>
-                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Pending Review</div>
+                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Chờ xem xét</div>
                   </div>
                 </div>
               </div>
 
               <div style={{ background: 'white', borderRadius: '12px', padding: '1.75rem', border: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>✅</div>
+                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z" fill="#10b981"/>
+                    </svg>
+                  </div>
                   <div>
                     <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.approvedApplications}</div>
-                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Approved</div>
+                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Đã chấp nhận</div>
                   </div>
                 </div>
               </div>
 
               <div style={{ background: 'white', borderRadius: '12px', padding: '1.75rem', border: '1px solid #e2e8f0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>❌</div>
+                  <div style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#ef4444"/>
+                    </svg>
+                  </div>
                   <div>
                     <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.rejectedApplications}</div>
-                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Rejected</div>
+                    <div style={{ color: '#64748b', fontSize: '0.9rem' }}>Đã từ chối</div>
                   </div>
                 </div>
               </div>
@@ -173,7 +196,7 @@ function Analytics({ onLogout }) {
             {/* Applications by Job */}
             <div style={{ background: 'white', borderRadius: '12px', padding: '2rem', border: '1px solid #e2e8f0' }}>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#0f172a', marginBottom: '1.5rem' }}>
-                Applications by Job Position
+                Đơn ứng tuyển theo vị trí công việc
               </h3>
               
               {stats.applicationsByJob.length === 0 ? (

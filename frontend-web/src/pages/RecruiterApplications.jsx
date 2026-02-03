@@ -69,14 +69,14 @@ function RecruiterApplications() {
           app.id === applicationId ? { ...app, status } : app
         ));
         setSelectedApplication({ ...selectedApplication, status });
-        alert(`Application ${status.toLowerCase()} successfully!`);
+        alert(`Đơn ứng tuyển đã được ${status === 'APPROVED' ? 'chấp nhận' : 'từ chối'} thành công!`);
       } else {
         const error = await response.json();
-        alert(error.message || 'Failed to update application status');
+        alert(error.message || 'Không thể cập nhật trạng thái đơn ứng tuyển');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Failed to update application status');
+      alert('Không thể cập nhật trạng thái đơn ứng tuyển');
     }
   };
 
@@ -85,13 +85,13 @@ function RecruiterApplications() {
       {/* Header */}
       <div style={{ background: 'white', borderBottom: '1px solid #e2e8f0', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#0f172a' }}>CareerMate Recruiter</h1>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#0f172a' }}>CareerMate Nhà tuyển dụng</h1>
           <div className="nav-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Dashboard</a>
-            <a href="/recruiter/applications" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Applications</a>
-            <a href="/recruiter/analytics" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Analytics</a>
+            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Bảng điều khiển</a>
+            <a href="/recruiter/applications" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Đơn ứng tuyển</a>
+            <a href="/recruiter/analytics" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Phân tích</a>
             <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1.5px solid #e2e8f0', color: '#64748b', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>
-              Logout
+              Đăng xuất
             </button>
           </div>
           <button className="nav-mobile" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ flexDirection: 'column', gap: '4px', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}>
@@ -102,26 +102,26 @@ function RecruiterApplications() {
         </div>
         {mobileMenuOpen && (
           <div className="nav-mobile" style={{ flexDirection: 'column', gap: '0.5rem', padding: '1rem', borderTop: '1px solid #e2e8f0', background: 'white' }}>
-            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Dashboard</a>
-            <a href="/recruiter/applications" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px' }}>Applications</a>
-            <a href="/recruiter/analytics" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Analytics</a>
-            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Logout</button>
+            <a href="/recruiter/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Bảng điều khiển</a>
+            <a href="/recruiter/applications" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px' }}>Đơn ứng tuyển</a>
+            <a href="/recruiter/analytics" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Phân tích</a>
+            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Đăng xuất</button>
           </div>
         )}
       </div>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '2rem' }}>
-          Applications Management
+          Quản lý đơn ứng tuyển
         </h2>
 
         <div className="applications-grid" style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '2rem' }}>
           {/* Jobs List */}
           <div>
             <div style={{ background: 'white', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '1.5rem' }}>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#0f172a', marginBottom: '1rem' }}>Your Jobs</h3>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#0f172a', marginBottom: '1rem' }}>Việc làm của bạn</h3>
               {loading ? (
-                <div style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>Loading...</div>
+                <div style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>Đang tải...</div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {jobs.map(job => (
@@ -153,17 +153,17 @@ function RecruiterApplications() {
             {/* Applications List */}
             <div style={{ background: 'white', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '1.5rem' }}>
               <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#0f172a', marginBottom: '1rem' }}>
-                Applications {selectedJob && `(${applications.length})`}
+                Đơn ứng tuyển {selectedJob && `(${applications.length})`}
               </h3>
               {!selectedJob ? (
                 <div style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
                   <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📋</div>
-                  <div>Select a job to view applications</div>
+                  <div>Chọn một công việc để xem đơn ứng tuyển</div>
                 </div>
               ) : applications.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
                   <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📭</div>
-                  <div>No applications yet</div>
+                  <div>Chưa có đơn ứng tuyển nào</div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxHeight: '600px', overflowY: 'auto' }}>
@@ -192,11 +192,11 @@ function RecruiterApplications() {
                           fontSize: '0.75rem',
                           fontWeight: '600'
                         }}>
-                          {app.status}
+                          {app.status === 'PENDING' ? 'Chờ duyệt' : app.status === 'APPROVED' ? 'Đã duyệt' : 'Từ chối'}
                         </span>
                       </div>
                       <div style={{ color: '#64748b', fontSize: '0.85rem' }}>
-                        Applied: {new Date(app.appliedAt).toLocaleDateString('vi-VN')}
+                        Ứng tuyển: {new Date(app.appliedAt).toLocaleDateString('vi-VN')}
                       </div>
                       {app.cvFileName && (
                         <div style={{ color: '#0ea5e9', fontSize: '0.85rem', marginTop: '0.25rem' }}>
@@ -218,7 +218,7 @@ function RecruiterApplications() {
                       {selectedApplication.candidateEmail}
                     </h3>
                     <div style={{ color: '#64748b' }}>
-                      Applied on {new Date(selectedApplication.appliedAt).toLocaleString('vi-VN')}
+                      Ứng tuyển vào {new Date(selectedApplication.appliedAt).toLocaleString('vi-VN')}
                     </div>
                   </div>
                   <button
@@ -233,7 +233,7 @@ function RecruiterApplications() {
                 {selectedApplication.coverLetter && (
                   <div style={{ marginBottom: '2rem' }}>
                     <h4 style={{ fontSize: '1.1rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.75rem' }}>
-                      Cover Letter
+                      Thư xin việc
                     </h4>
                     <div style={{ padding: '1rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0', color: '#475569', lineHeight: '1.7' }}>
                       {selectedApplication.coverLetter}
@@ -245,7 +245,7 @@ function RecruiterApplications() {
                 {selectedApplication.cvContent && (
                   <div style={{ marginBottom: '2rem' }}>
                     <h4 style={{ fontSize: '1.1rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.75rem' }}>
-                      CV Content
+                      Nội dung CV
                       {selectedApplication.cvFileName && (
                         <span style={{ color: '#64748b', fontWeight: '400', fontSize: '0.9rem', marginLeft: '0.5rem' }}>
                           ({selectedApplication.cvFileName})
@@ -265,13 +265,13 @@ function RecruiterApplications() {
                       onClick={() => updateApplicationStatus(selectedApplication.id, 'APPROVED')}
                       style={{ flex: 1, padding: '1rem', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '1rem' }}
                     >
-                      ✓ Approve
+                      Chấp nhận
                     </button>
                     <button
                       onClick={() => updateApplicationStatus(selectedApplication.id, 'REJECTED')}
                       style={{ flex: 1, padding: '1rem', background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', fontSize: '1rem' }}
                     >
-                      × Reject
+                      Từ chối
                     </button>
                   </div>
                 )}

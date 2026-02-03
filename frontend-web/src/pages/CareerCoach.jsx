@@ -66,12 +66,12 @@ function CareerCoach() {
   };
 
   const suggestions = [
-    'How can I improve my resume?',
-    'What skills should I learn for a tech career?',
-    'Tips for job interviews',
-    'How to negotiate salary?',
-    'Career change advice',
-    'Building a professional network'
+    'Làm thế nào để cải thiện CV của tôi?',
+    'Tôi nên học kỹ năng gì cho sự nghiệp công nghệ?',
+    'Mẹo cho buổi phỏng vấn xin việc',
+    'Cách thương lượng lương?',
+    'Lời khuyên thay đổi nghề nghiệp',
+    'Xây dựng mạng lưới chuyên nghiệp'
   ];
 
   return (
@@ -83,11 +83,17 @@ function CareerCoach() {
             CareerMate
           </h1>
           <div className="nav-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Dashboard</a>
-            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Jobs</a>
-            <a href="/coach" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Career Coach</a>
-            <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1.5px solid #e2e8f0', color: '#64748b', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>
-              Logout
+            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Bảng điều khiển
+            </a>
+            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Việc làm
+            </a>
+            <a href="/coach" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Tư vấn nghề nghiệp
+            </a>
+            <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1.5px solid #e2e8f0', color: '#64748b', borderRadius: '8px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Đăng xuất
             </button>
           </div>
           <button className="nav-mobile" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ flexDirection: 'column', gap: '4px', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}>
@@ -98,10 +104,18 @@ function CareerCoach() {
         </div>
         {mobileMenuOpen && (
           <div className="nav-mobile" style={{ flexDirection: 'column', gap: '0.5rem', padding: '1rem', borderTop: '1px solid #e2e8f0', background: 'white' }}>
-            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Dashboard</a>
-            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Jobs</a>
-            <a href="/coach" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px' }}>Career Coach</a>
-            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Logout</button>
+            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Bảng điều khiển
+            </a>
+            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Việc làm
+            </a>
+            <a href="/coach" style={{ color: '#0ea5e9', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#f0f9ff', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Tư vấn nghề nghiệp
+            </a>
+            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              Đăng xuất
+            </button>
           </div>
         )}
       </div>
@@ -110,10 +124,10 @@ function CareerCoach() {
       <div style={{ flex: 1, maxWidth: '1000px', width: '100%', margin: '0 auto', padding: '1rem', display: 'flex', flexDirection: 'column' }}>
         <div style={{ marginBottom: '1.5rem' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
-            AI Career Coach 🤖
+            Tư vấn nghề nghiệp AI
           </h2>
           <p style={{ color: '#64748b', fontSize: '1.05rem' }}>
-            Get personalized career guidance powered by AI
+            Nhận hướng dẫn nghề nghiệp cá nhân hóa được hỗ trợ bởi AI
           </p>
         </div>
 
@@ -122,11 +136,11 @@ function CareerCoach() {
           {messages.map((msg, idx) => (
             <div key={idx} style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'start' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: msg.role === 'user' ? 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: '600', fontSize: '0.9rem', flexShrink: 0 }}>
-                {msg.role === 'user' ? 'You' : 'AI'}
+                {msg.role === 'user' ? 'U' : 'AI'}
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ color: '#0f172a', fontWeight: '600', marginBottom: '0.5rem', fontSize: '0.95rem' }}>
-                  {msg.role === 'user' ? 'You' : 'Career Coach'}
+                  {msg.role === 'user' ? 'Bạn' : 'Tư vấn viên nghề nghiệp'}
                 </div>
                 <div style={{ color: '#475569', lineHeight: '1.7', fontSize: '0.95rem', whiteSpace: 'pre-wrap' }}>
                   {msg.content}
@@ -141,10 +155,10 @@ function CareerCoach() {
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ color: '#0f172a', fontWeight: '600', marginBottom: '0.5rem', fontSize: '0.95rem' }}>
-                  Career Coach
+                  Tư vấn viên nghề nghiệp
                 </div>
                 <div style={{ color: '#64748b', fontSize: '0.95rem' }}>
-                  Thinking...
+                  💭 Đang suy nghĩ...
                 </div>
               </div>
             </div>
@@ -156,7 +170,7 @@ function CareerCoach() {
         {messages.length <= 1 && (
           <div style={{ marginBottom: '1.5rem' }}>
             <div style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '0.75rem', fontWeight: '500' }}>
-              Try asking:
+              💡 Thử hỏi:
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
               {suggestions.map((suggestion, idx) => (
