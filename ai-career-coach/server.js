@@ -26,9 +26,10 @@ app.post('/api/ai/coach/chat', async (req, res) => {
 - Offer resume and CV improvement tips
 - Give motivational support and career planning advice
 
-Be friendly, professional, and encouraging. Keep responses concise but helpful (2-3 paragraphs max).`
+Be friendly, professional, and encouraging. Keep responses concise but helpful (2-3 paragraphs max).
+If the user asks in Vietnamese, respond in Vietnamese. If in English, respond in English.`
       },
-      ...conversationHistory,
+      ...conversationHistory.slice(-5), // Keep last 5 messages for context
       {
         role: 'user',
         content: message
@@ -55,9 +56,34 @@ Be friendly, professional, and encouraging. Keep responses concise but helpful (
     });
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ 
-      error: 'Failed to get response from AI',
-      message: error.message 
+    
+    // Fallback responses if AI fails
+    const fallbackResponses = {
+      'hello': 'Hello! I\'m your AI Career Coach. How can I help you with your career today?',
+      'resume': 'Here are some tips for improving your resume:\n\n1. Use action verbs to describe your achievements\n2. Quantify your accomplishments with numbers\n3. Tailor your resume to each job application\n4. Keep it concise and well-formatted\n5. Include relevant keywords from the job description',
+      'interview': 'Here are some interview tips:\n\n1. Research the company thoroughly\n2. Practice common interview questions\n3. Prepare specific examples using the STAR method\n4. Dress appropriately and arrive early\n5. Ask thoughtful questions about the role',
+      'skills': 'To develop your skills:\n\n1. Identify in-demand skills in your field\n2. Take online courses (Coursera, Udemy, LinkedIn Learning)\n3. Work on personal projects\n4. Contribute to open-source projects\n5. Attend workshops and conferences',
+      'career': 'For career planning:\n\n1. Set clear short and long-term goals\n2. Network with professionals in your field\n3. Seek mentorship opportunities\n4. Stay updated with industry trends\n5. Consider additional certifications'
+    };
+
+    const lowerMessage = message.toLowerCase();
+    let fallbackResponse = 'Thank you for your question! Here are some general career tips:\n\n1. Continuously learn and adapt to industry changes\n2. Build a strong professional network\n3. Set clear career goals and create action plans\n4. Seek feedback and mentorship\n5. Maintain a positive attitude and stay persistent\n\nWhat specific area would you like to focus on?';
+
+    for (const [key, value] of Object.entries(fallbackResponses)) {
+      if (lowerMessage.includes(key)) {
+        fallbackResponse = value;
+        break;
+      }
+    }
+
+    res.json({
+      response: fallbackResponse,
+      suggestions: [
+        'Tell me about career paths in tech',
+        'How can I improve my resume?',
+        'What skills should I learn?',
+        'Tips for job interviews'
+      ]
     });
   }
 });
@@ -356,6 +382,6 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.PORT || 8091;
 app.listen(PORT, () => {
-  console.log(`🤖 AI Career Coach running on http://localhost:${PORT}`);
+  console.log(`🤖 CareerMate AI Career Coach running on http://localhost:${PORT}`);
   console.log(`✅ Groq API configured`);
 });
