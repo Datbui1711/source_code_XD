@@ -26,6 +26,12 @@ public class AuthController {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
+    @PostMapping("/admin/users")
+    @Operation(summary = "Create a new user (Admin only)")
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody RegisterRequest request) {
+        return ResponseEntity.ok(authenticationService.register(request));
+    }
+
     @PostMapping("/login")
     @Operation(summary = "Login with email and password")
     public ResponseEntity<TokenResponse> login(@Valid @RequestBody LoginRequest request) {

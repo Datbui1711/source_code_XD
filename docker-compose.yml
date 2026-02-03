@@ -131,19 +131,6 @@ services:
     networks:
       - careermate-network
 
-  # AI CV Analyzer Service (Python FastAPI)
-  ai-cv-analyzer:
-    build: ./ai-cv-analyzer
-    container_name: careermate-ai-cv-analyzer
-    ports:
-      - "8000:8000"
-    environment:
-      GROQ_API_KEY: ${GROQ_API_KEY}
-    volumes:
-      - ./ai-cv-analyzer:/app
-    networks:
-      - careermate-network
-
   # Eureka Service Discovery
   eureka-server:
     build:
@@ -192,6 +179,117 @@ services:
     depends_on:
       - eureka-server
       - config-server
+    networks:
+      - careermate-network
+
+  # Auth Service
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    container_name: careermate-auth
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-auth:5432/auth_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - postgres-auth
+      - eureka-server
+      - config-server
+    networks:
+      - careermate-network
+
+  # Job Service
+  job-service:
+    build:
+      context: ./job-service
+      dockerfile: Dockerfile
+    container_name: careermate-job
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-job:5432/job_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - postgres-job
+      - eureka-server
+      - config-server
+    networks:
+      - careermate-network
+
+  # Candidate Service
+  candidate-service:
+    build:
+      context: ./candidate-service
+      dockerfile: Dockerfile
+    container_name: careermate-candidate
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-candidate:5432/candidate_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - postgres-candidate
+      - eureka-server
+      - config-server
+    networks:
+      - careermate-network
+
+  # Recruiter Service
+  recruiter-service:
+    build:
+      context: ./recruiter-service
+      dockerfile: Dockerfile
+    container_name: careermate-recruiter
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-recruiter:5432/recruiter_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - postgres-recruiter
+      - eureka-server
+      - config-server
+    networks:
+      - careermate-network
+
+  # AI Career Coach Service (Node.js)
+  ai-career-coach:
+    build:
+      context: ./ai-career-coach
+      dockerfile: Dockerfile
+    container_name: careermate-ai-coach
+    ports:
+      - "8091:8091"
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      PORT: 8091
+    networks:
+      - careermate-network
+
+  # AI CV Analyzer Service (Python FastAPI)
+  ai-cv-analyzer:
+    build: ./ai-cv-analyzer
+    container_name: careermate-ai-cv-analyzer
+    ports:
+      - "8000:8000"
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+    volumes:
+      - ./ai-cv-analyzer:/app
     networks:
       - careermate-network
 
