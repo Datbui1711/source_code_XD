@@ -36,7 +36,8 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Use the CORS config
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/actuator/**", "/swagger-ui/**", "/v3/api-docs/**", "/error").permitAll()
+                .requestMatchers("/api/auth/register", "/api/auth/login", "/api/auth/refresh", "/api/auth/oauth2/**", "/actuator/**", "/swagger-ui/**", "/v3/api-docs/**", "/error").permitAll()
+                .requestMatchers("/api/auth/admin/**", "/api/auth/users/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
@@ -69,7 +70,7 @@ public class SecurityConfig {
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
-        configuration.setAllowedOrigins(java.util.Arrays.asList("http://localhost:3000", "http://localhost:9090"));
+        configuration.setAllowedOrigins(java.util.Arrays.asList("http://localhost:3000", "http://localhost:9090", "http://localhost:5173", "http://127.0.0.1:5173"));
         configuration.setAllowedMethods(java.util.Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(java.util.Arrays.asList("*"));
         configuration.setAllowCredentials(true);
