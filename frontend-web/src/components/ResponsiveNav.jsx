@@ -49,7 +49,7 @@ function ResponsiveNav({ title, links, onLogout, currentPath }) {
                 fontSize: '0.95rem'
               }}
             >
-              Logout
+              Đăng xuất
             </button>
           </div>
 
@@ -113,7 +113,7 @@ function ResponsiveNav({ title, links, onLogout, currentPath }) {
                 textAlign: 'left'
               }}
             >
-              Logout
+              Đăng xuất
             </button>
           </div>
         )}
