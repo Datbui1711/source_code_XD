@@ -18,7 +18,6 @@ import PostJob from './pages/PostJob'
 import Analytics from './pages/Analytics'
 import CVScreening from './pages/CVScreening'
 import MyApplications from './pages/MyApplications'
-import OAuth2Callback from './pages/OAuth2Callback'
 import './App.css'
 
 function App() {
@@ -182,7 +181,6 @@ function App() {
             <Navigate to="/login" />
           } 
         />
-        <Route path="/oauth2/callback" element={<OAuth2Callback />} />
         <Route path="/" element={<Navigate to={isAuthenticated ? defaultDashboard : "/login"} />} />
       </Routes>
     </Router>

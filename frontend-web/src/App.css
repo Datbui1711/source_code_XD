@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+/* Loại bỏ thanh cuộn ngang toàn cục */
+html, body, #root {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw !important;
+}
+
+/* Đảm bảo tất cả element không vượt quá chiều rộng màn hình */
+* {
+  max-width: 100% !important;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,6 +26,9 @@ body {
 
 .app {
   min-height: 100vh;
+  overflow-x: hidden; /* Bỏ thanh cuộn ngang */
+  width: 100%;
+  max-width: 100vw;
 }
 
 @keyframes spin {
