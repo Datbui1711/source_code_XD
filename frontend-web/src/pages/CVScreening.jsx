@@ -140,7 +140,7 @@ function CVScreening({ onLogout }) {
       });
 
       if (response.ok) {
-        alert('✅ Đã đưa vào danh sách ưu tiên! Ứng viên sẽ nhận được thông báo.');
+        alert('Đã đưa vào danh sách ưu tiên! Ứng viên sẽ nhận được thông báo.');
         // Refresh to see updated status
         window.location.reload();
       } else {
@@ -493,7 +493,9 @@ function CVScreening({ onLogout }) {
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                         <div style={{ background: 'white', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
                           <div style={{ fontWeight: '600', color: '#10b981', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span>✅</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z" fill="#10b981"/>
+                            </svg>
                             <span>Kỹ năng phù hợp ({result.strengths.length})</span>
                           </div>
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>

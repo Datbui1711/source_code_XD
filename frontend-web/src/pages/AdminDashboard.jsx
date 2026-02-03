@@ -109,11 +109,11 @@ function AdminDashboard({ onLogout }) {
           </div>
           
           <div className="nav-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="/admin/dashboard" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Dashboard</a>
-            <a href="/admin/users" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Users</a>
-            <a href="/admin/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Jobs</a>
+            <a href="/admin/dashboard" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Bảng điều khiển</a>
+            <a href="/admin/users" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Người dùng</a>
+            <a href="/admin/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Việc làm</a>
             <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1px solid #cbd5e1', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>
-              Logout
+              Đăng xuất
             </button>
           </div>
 
@@ -130,11 +130,11 @@ function AdminDashboard({ onLogout }) {
 
         {mobileMenuOpen && (
           <div className="nav-mobile" style={{ display: 'none', flexDirection: 'column', gap: '0.5rem', padding: '1rem', borderTop: '1px solid #e2e8f0', background: 'white' }}>
-            <a href="/admin/dashboard" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', borderRadius: '6px', background: '#fef2f2' }}>Dashboard</a>
-            <a href="/admin/users" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Users</a>
-            <a href="/admin/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Jobs</a>
+            <a href="/admin/dashboard" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', borderRadius: '6px', background: '#fef2f2' }}>Bảng điều khiển</a>
+            <a href="/admin/users" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Người dùng</a>
+            <a href="/admin/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Việc làm</a>
             <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>
-              Logout
+              Đăng xuất
             </button>
           </div>
         )}
@@ -144,38 +144,81 @@ function AdminDashboard({ onLogout }) {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '1rem' }}>
         {/* Page Header */}
         <div style={{ marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
-            Admin Dashboard
+          <h1 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem', background: 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Bảng điều khiển quản trị
           </h1>
           <p style={{ color: '#64748b', fontSize: '1rem' }}>
-            System overview and management
+            Tổng quan hệ thống và quản lý
           </p>
         </div>
 
         {/* Stats Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Total Users</div>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: '#64748b' }}>Tổng người dùng</div>
+            </div>
             <div style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a' }}>{stats.totalUsers}</div>
           </div>
           
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Candidates</div>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: '#64748b' }}>Ứng viên</div>
+            </div>
             <div style={{ fontSize: '2rem', fontWeight: '700', color: '#3b82f6' }}>{stats.totalCandidates}</div>
           </div>
           
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Recruiters</div>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: '#64748b' }}>Nhà tuyển dụng</div>
+            </div>
             <div style={{ fontSize: '2rem', fontWeight: '700', color: '#8b5cf6' }}>{stats.totalRecruiters}</div>
           </div>
           
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Total Jobs</div>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: '#64748b' }}>Tổng việc làm</div>
+            </div>
             <div style={{ fontSize: '2rem', fontWeight: '700', color: '#10b981' }}>{stats.totalJobs}</div>
           </div>
           
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Active Jobs</div>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9,11 12,14 22,4"></polyline>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: '#64748b' }}>Việc làm đang hoạt động</div>
+            </div>
             <div style={{ fontSize: '2rem', fontWeight: '700', color: '#059669' }}>{stats.activeJobs}</div>
           </div>
         </div>
@@ -183,7 +226,7 @@ function AdminDashboard({ onLogout }) {
         {/* Recent Users */}
         <div style={{ background: 'white', borderRadius: '8px', padding: '1.5rem', border: '1px solid #e2e8f0', marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#0f172a', marginBottom: '1rem' }}>
-            Recent Users
+            Người dùng gần đây
           </h2>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -249,7 +292,7 @@ function AdminDashboard({ onLogout }) {
         {/* Recent Jobs */}
         <div style={{ background: 'white', borderRadius: '8px', padding: '1.5rem', border: '1px solid #e2e8f0' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#0f172a', marginBottom: '1rem' }}>
-            Recent Jobs
+            Việc làm gần đây
           </h2>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -298,6 +341,109 @@ function AdminDashboard({ onLogout }) {
           .nav-mobile { display: flex !important; }
           h1 { font-size: 1.5rem !important; }
           h2 { font-size: 1.25rem !important; }
+        }
+        
+        /* Smooth transitions */
+        * {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Navigation hover effects */
+        .nav-desktop a:hover {
+          color: #dc2626 !important;
+          transform: translateY(-1px);
+        }
+        
+        .nav-mobile a:hover {
+          background: #fef2f2 !important;
+          transform: translateX(4px);
+        }
+        
+        /* Stats cards hover effects */
+        div[style*="background: 'white'"][style*="padding: '1.5rem'"]:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        /* SVG icon hover effects */
+        div[style*="background: 'white'"][style*="padding: '1.5rem'"]:hover svg {
+          transform: scale(1.1) rotate(5deg);
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        /* Icon container hover effects */
+        div[style*="background: linear-gradient"] {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        div[style*="background: 'white'"][style*="padding: '1.5rem'"]:hover div[style*="background: linear-gradient"] {
+          transform: scale(1.05);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Table row hover effects */
+        tr:hover {
+          background: #f8fafc !important;
+          transform: scale(1.01);
+        }
+        
+        /* Button hover effects */
+        button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Page load animation */
+        body {
+          animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        /* Stats cards stagger animation */
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(1) {
+          animation: slideInUp 0.6s ease-out 0.1s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(2) {
+          animation: slideInUp 0.6s ease-out 0.2s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(3) {
+          animation: slideInUp 0.6s ease-out 0.3s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(4) {
+          animation: slideInUp 0.6s ease-out 0.4s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(5) {
+          animation: slideInUp 0.6s ease-out 0.5s both;
+        }
+        
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Table animation */
+        table {
+          animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+        
+        /* Status badges pulse */
+        span[style*="borderRadius: '9999px'"] {
+          animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
         }
       `}</style>
     </div>

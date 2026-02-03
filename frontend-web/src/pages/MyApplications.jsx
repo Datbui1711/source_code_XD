@@ -55,12 +55,12 @@ function MyApplications({ onLogout }) {
             CareerMate
           </div>
           <div className="nav-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Dashboard</a>
-            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Jobs</a>
-            <a href="/applications" style={{ color: '#1e40af', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>My Applications</a>
-            <a href="/profile" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Profile</a>
+            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Bảng điều khiển</a>
+            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Việc làm</a>
+            <a href="/applications" style={{ color: '#1e40af', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem' }}>Đơn ứng tuyển</a>
+            <a href="/profile" style={{ color: '#64748b', textDecoration: 'none', fontSize: '0.95rem' }}>Hồ sơ</a>
             <button onClick={handleLogout} style={{ padding: '0.5rem 1.25rem', background: 'white', border: '1px solid #cbd5e1', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', fontSize: '0.95rem' }}>
-              Logout
+              Đăng xuất
             </button>
           </div>
           <button className="nav-mobile" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ flexDirection: 'column', gap: '4px', background: 'none', border: 'none', cursor: 'pointer', padding: '0.5rem' }}>
@@ -71,11 +71,11 @@ function MyApplications({ onLogout }) {
         </div>
         {mobileMenuOpen && (
           <div className="nav-mobile" style={{ flexDirection: 'column', gap: '0.5rem', padding: '1rem', borderTop: '1px solid #e2e8f0', background: 'white' }}>
-            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Dashboard</a>
-            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Jobs</a>
-            <a href="/applications" style={{ color: '#1e40af', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#eff6ff', borderRadius: '6px' }}>My Applications</a>
-            <a href="/profile" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Profile</a>
-            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Logout</button>
+            <a href="/dashboard" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Bảng điều khiển</a>
+            <a href="/jobs" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Việc làm</a>
+            <a href="/applications" style={{ color: '#1e40af', textDecoration: 'none', fontWeight: '600', padding: '0.75rem', background: '#eff6ff', borderRadius: '6px' }}>Đơn ứng tuyển</a>
+            <a href="/profile" style={{ color: '#64748b', textDecoration: 'none', padding: '0.75rem' }}>Hồ sơ</a>
+            <button onClick={handleLogout} style={{ padding: '0.75rem', background: '#f8fafc', border: '1px solid #e2e8f0', color: '#64748b', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', textAlign: 'left' }}>Đăng xuất</button>
           </div>
         )}
       </nav>
@@ -83,34 +83,34 @@ function MyApplications({ onLogout }) {
       {/* Main Content */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '1rem' }}>
         <div style={{ marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
-            My Applications
+          <h1 style={{ fontSize: '2rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem', background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Đơn ứng tuyển của tôi
           </h1>
           <p style={{ color: '#64748b', fontSize: '1rem' }}>
-            Track the status of your job applications
+            Theo dõi trạng thái các đơn ứng tuyển của bạn
           </p>
         </div>
 
         {/* Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Total Applications</div>
+          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }} onClick={() => navigate('/applications')}>
+            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Tổng số đơn</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: '#0f172a' }}>{applications.length}</div>
           </div>
-          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Approved</div>
+          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }} onClick={() => navigate('/applications')}>
+            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Được chấp nhận</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: '#059669' }}>
               {applications.filter(a => a.status === 'APPROVED').length}
             </div>
           </div>
-          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Pending</div>
+          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }} onClick={() => navigate('/applications')}>
+            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Đang chờ</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: '#d97706' }}>
               {applications.filter(a => a.status === 'PENDING').length}
             </div>
           </div>
-          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Rejected</div>
+          <div style={{ background: 'white', padding: '1.25rem', borderRadius: '12px', border: '1px solid #e2e8f0', transition: 'all 0.3s ease', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }} onClick={() => navigate('/applications')}>
+            <div style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '0.5rem' }}>Bị từ chối</div>
             <div style={{ fontSize: '1.75rem', fontWeight: '700', color: '#dc2626' }}>
               {applications.filter(a => a.status === 'REJECTED').length}
             </div>
@@ -132,7 +132,7 @@ function MyApplications({ onLogout }) {
                       🏢 {app.companyName}
                     </div>
                     <div style={{ fontSize: '0.875rem', color: '#64748b' }}>
-                      Applied on {new Date(app.appliedAt).toLocaleDateString('en-US', { 
+                      Ứng tuyển vào {new Date(app.appliedAt).toLocaleDateString('vi-VN', { 
                         year: 'numeric', 
                         month: 'long', 
                         day: 'numeric',
@@ -155,7 +155,7 @@ function MyApplications({ onLogout }) {
 
                 {app.coverLetter && (
                   <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '6px', marginBottom: '1rem' }}>
-                    <div style={{ fontWeight: '600', marginBottom: '0.5rem', color: '#0f172a', fontSize: '0.875rem' }}>Cover Letter:</div>
+                    <div style={{ fontWeight: '600', marginBottom: '0.5rem', color: '#0f172a', fontSize: '0.875rem' }}>Thư xin việc:</div>
                     <div style={{ color: '#64748b', fontSize: '0.875rem', lineHeight: '1.6' }}>
                       {app.coverLetter}
                     </div>
@@ -165,10 +165,10 @@ function MyApplications({ onLogout }) {
                 {app.status === 'APPROVED' && (
                   <div style={{ background: '#d1fae5', padding: '1rem', borderRadius: '6px', border: '1px solid #6ee7b7' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#059669', fontWeight: '600', marginBottom: '0.5rem' }}>
-                      ✅ Congratulations!
+                      Chúc mừng!
                     </div>
                     <div style={{ color: '#047857', fontSize: '0.875rem' }}>
-                      Your application has been approved. The recruiter will contact you soon for the next steps.
+                      Đơn ứng tuyển của bạn đã được chấp nhận. Nhà tuyển dụng sẽ liên hệ với bạn sớm để thực hiện các bước tiếp theo.
                     </div>
                   </div>
                 )}
@@ -176,10 +176,10 @@ function MyApplications({ onLogout }) {
                 {app.status === 'REJECTED' && (
                   <div style={{ background: '#fee2e2', padding: '1rem', borderRadius: '6px', border: '1px solid #fca5a5' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#dc2626', fontWeight: '600', marginBottom: '0.5rem' }}>
-                      ❌ Application Not Selected
+                      Đơn ứng tuyển không được chọn
                     </div>
                     <div style={{ color: '#b91c1c', fontSize: '0.875rem' }}>
-                      Unfortunately, your application was not selected for this position. Keep applying to other opportunities!
+                      Rất tiếc, đơn ứng tuyển của bạn không được chọn cho vị trí này. Hãy tiếp tục ứng tuyển các cơ hội khác!
                     </div>
                   </div>
                 )}
@@ -190,18 +190,25 @@ function MyApplications({ onLogout }) {
 
         {applications.length === 0 && (
           <div style={{ background: 'white', borderRadius: '8px', padding: '3rem', border: '1px solid #e2e8f0', textAlign: 'center' }}>
-            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📭</div>
+            <div style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#0f172a', marginBottom: '0.5rem' }}>
-              No Applications Yet
+              Chưa có đơn ứng tuyển nào
             </h3>
             <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>
-              Start applying to jobs to see your applications here
+              Bắt đầu ứng tuyển việc làm để xem các đơn ứng tuyển tại đây
             </p>
             <button
               onClick={() => navigate('/jobs')}
-              style={{ padding: '0.75rem 1.5rem', background: '#1e40af', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '600' }}
+              style={{ padding: '0.75rem 1.5rem', background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.3s ease', boxShadow: '0 4px 12px rgba(30, 64, 175, 0.3)' }}
+              onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+              onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
             >
-              Browse Jobs
+              Tìm việc làm
             </button>
           </div>
         )}
@@ -215,6 +222,138 @@ function MyApplications({ onLogout }) {
           .nav-mobile { display: flex !important; }
           h1 { font-size: 1.5rem !important; }
           h2 { font-size: 1.25rem !important; }
+        }
+        
+        /* Smooth transitions for all elements */
+        * {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Navigation hover effects */
+        .nav-desktop a:hover {
+          color: #1e40af !important;
+          transform: translateY(-1px);
+        }
+        
+        .nav-mobile a:hover {
+          background: #f0f9ff !important;
+          transform: translateX(4px);
+        }
+        
+        /* Button hover effects */
+        button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Stats cards animation */
+        div[style*="background: 'white'"][style*="padding: '1.25rem'"]:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        /* SVG icon hover effects */
+        div[style*="background: 'white'"][style*="padding: '3rem'"]:hover svg {
+          transform: scale(1.1) rotate(5deg);
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+          stroke: #1e40af;
+        }
+        
+        /* Empty state icon container hover */
+        div[style*="background: linear-gradient"][style*="borderRadius: '50%'"]:hover {
+          transform: scale(1.05);
+          background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
+        }
+        
+        /* Application cards hover effect */
+        div[style*="background: 'white'"][style*="borderRadius: '8px'"]:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        /* Page load animation */
+        body {
+          animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        /* Stagger animation for stats cards */
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(1) {
+          animation: slideInUp 0.6s ease-out 0.1s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(2) {
+          animation: slideInUp 0.6s ease-out 0.2s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(3) {
+          animation: slideInUp 0.6s ease-out 0.3s both;
+        }
+        div[style*="display: grid"][style*="gridTemplateColumns"] > div:nth-child(4) {
+          animation: slideInUp 0.6s ease-out 0.4s both;
+        }
+        
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Status badge pulse animation */
+        span[style*="borderRadius: '9999px'"] {
+          animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        /* Success/Error message animations */
+        div[style*="background: '#d1fae5'"] {
+          animation: bounceIn 0.6s ease-out;
+        }
+        
+        div[style*="background: '#fee2e2'"] {
+          animation: shakeIn 0.6s ease-out;
+        }
+        
+        @keyframes bounceIn {
+          0% { transform: scale(0.3); opacity: 0; }
+          50% { transform: scale(1.05); }
+          70% { transform: scale(0.9); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes shakeIn {
+          0% { transform: translateX(-10px); opacity: 0; }
+          25% { transform: translateX(10px); }
+          50% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+          100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Mobile menu slide animation */
+        .nav-mobile[style*="display: flex"] {
+          animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </div>
